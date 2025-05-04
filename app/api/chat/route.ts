@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 import { openai } from "@ai-sdk/openai";
 import { streamText } from "ai";
 import { getFuriaTeamData, getFuriaMatches } from "@/lib/furia-api";
@@ -21,14 +19,18 @@ export async function POST(req: Request) {
     });
 
   const pastFormatted = past
-    .map((m) => {
+    // eslint-disable-next-line
+    .map((m: any) => {
       const adversario = m.opponents
-        .filter((o) => o.opponent.name !== "FURIA")
-        .map((o) => o.opponent.name)
+        // eslint-disable-next-line
+        .filter((o: any) => o.opponent.name !== "FURIA")
+        // eslint-disable-next-line
+        .map((o: any) => o.opponent.name)
         .join(" & ");
 
       const placar =
-        m.results?.map((r) => r.score).join("x") ?? "sem resultado";
+        // eslint-disable-next-line
+        m.results?.map((r: any) => r.score).join("x") ?? "sem resultado";
       const data = formatDate(m.begin_at);
 
       return `• Contra ${adversario}: ${placar} (${data})`;
@@ -36,10 +38,13 @@ export async function POST(req: Request) {
     .join("\n");
 
   const upcomingFormatted = upcoming
-    .map((m) => {
+    // eslint-disable-next-line
+    .map((m: any) => {
       const adversario = m.opponents
-        .filter((o) => o.opponent.name !== "FURIA")
-        .map((o) => o.opponent.name)
+        // eslint-disable-next-line
+        .filter((o: any) => o.opponent.name !== "FURIA")
+        // eslint-disable-next-line
+        .map((o: any) => o.opponent.name)
         .join(" & ");
 
       const data = new Date(m.begin_at).toLocaleDateString("pt-BR", {
@@ -67,7 +72,10 @@ export async function POST(req: Request) {
   
   [ELENCO ATUAL]
   - Time: ${team.name}
-  - Jogadores: ${team.players.map((p) => p.name).join(", ")}
+  - Jogadores: ${
+    // eslint-disable-next-line
+    team.players.map((p: any) => p.name).join(", ")
+  }
   
   [ÚLTIMOS JOGOS]
   ${pastFormatted || "Ainda sem jogos recentes."}

@@ -2,6 +2,7 @@
 import { cn } from "@/lib/utils";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import React, { useMemo, useRef } from "react";
+// @ts-expect-error: TODO: fix types
 import * as THREE from "three";
 
 export const CanvasRevealEffect = ({
@@ -192,6 +193,7 @@ const ShaderMaterial = ({
   uniforms: Uniforms;
 }) => {
   const { size } = useThree();
+  // @ts-expect-error: TODO: fix types
   const ref = useRef<THREE.Mesh>();
   let lastFrameTime = 0;
 
@@ -203,15 +205,18 @@ const ShaderMaterial = ({
     }
     lastFrameTime = timestamp;
 
+    // eslint-disable-next-line
     const material: any = ref.current.material;
     const timeLocation = material.uniforms.u_time;
     timeLocation.value = timestamp;
   });
 
   const getUniforms = () => {
+    // eslint-disable-next-line
     const preparedUniforms: any = {};
 
     for (const uniformName in uniforms) {
+      // eslint-disable-next-line
       const uniform: any = uniforms[uniformName];
 
       switch (uniform.type) {
@@ -279,9 +284,11 @@ const ShaderMaterial = ({
     });
 
     return materialObject;
+    // eslint-disable-next-line
   }, [size.width, size.height, source]);
 
   return (
+    // eslint-disable-next-line
     <mesh ref={ref as any}>
       <planeGeometry args={[2, 2]} />
       <primitive object={material} attach="material" />

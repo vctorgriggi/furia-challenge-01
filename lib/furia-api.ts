@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 import { createApiClient } from "./http";
 
 // Pandascore API
@@ -24,16 +22,22 @@ export async function getFuriaMatches(limit = 5) {
   const now = new Date();
 
   const past = matches
-    .filter((m) => new Date(m.begin_at) < now)
+    // eslint-disable-next-line
+    .filter((m: any) => new Date(m.begin_at) < now)
     .sort(
-      (a, b) => new Date(b.begin_at).getTime() - new Date(a.begin_at).getTime()
+      // eslint-disable-next-line
+      (a: any, b: any) =>
+        new Date(b.begin_at).getTime() - new Date(a.begin_at).getTime()
     )
     .slice(0, limit);
 
   const upcoming = matches
-    .filter((m) => new Date(m.begin_at) >= now)
+    // eslint-disable-next-line
+    .filter((m: any) => new Date(m.begin_at) >= now)
     .sort(
-      (a, b) => new Date(a.begin_at).getTime() - new Date(b.begin_at).getTime()
+      // eslint-disable-next-line
+      (a: any, b: any) =>
+        new Date(a.begin_at).getTime() - new Date(b.begin_at).getTime()
     )
     .slice(0, limit);
 

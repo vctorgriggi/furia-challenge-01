@@ -178,6 +178,7 @@ const AceternityIcon = () => {
   );
 };
 
+// eslint-disable-next-line
 const Icon = ({ className, ...rest }: any) => {
   return (
     <svg

@@ -11,7 +11,7 @@ Desenvolvido como parte de um teste técnico para a FURIA, este projeto utiliza 
 
 ## 📺 Demonstração
 
-👉 [Assista à apresentação no YouTube](https://www.youtube.com/seu-link-aqui)
+👉 O vídeo de demonstração foi enviado juntamente com o formulário de submissão.
 
 ## 🖼️ Capturas de Tela
 

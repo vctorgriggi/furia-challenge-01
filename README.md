@@ -1,6 +1,6 @@
 # 🦁 FURIA Challenge #1 – Experiência Conversacional
 
-Desenvolvido como parte de um teste técnico para a FURIA, este projeto utiliza **Next.js**, **OpenAI** e **PandaScore** para implementar um chat interativo com respostas geradas por IA, permitindo que fãs acessem informações sobre a organização e o time de CS da FURIA.
+Projeto criado para um teste técnico da FURIA, desenvolvido com Next.js, integrado à OpenAI para respostas via IA e à PandaScore para dados do time de CS, oferecendo um chat interativo com informações sobre a organização.
 
 ## 🚀 Funcionalidades
 
